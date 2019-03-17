@@ -19,7 +19,8 @@ def remove_character(text, delete_unchinese=False):
 def get_stopwords():
     """加载停用词"""
     with open('../../source/stopwords.txt', 'rb') as f:
-        stopwords = [stopword.decode('utf-8').replace('\n', '') for stopword in f.readlines()]
+#        stopwords = [stopword.decode('utf-8').replace('\r\n', '').replace('\r', '').replace('\n', '') for stopword in f.readlines()]
+        stopwords = [stopword.decode('utf-8').replace('\r\n', '') for stopword in f.readlines()]
     return  stopwords           
 
 def remove_stopwords(text):
@@ -62,7 +63,7 @@ if __name__=='__main__':
            '搜 了 半天 网上 的 都是 Python2 的 代码 ， 根本 不能 运行 ， 浪费 半天 时间', 
            '稍微 改 了 一下 2次 编码 整 成 同一 类型 ， 成功 匹配 。 ', 
            '原来 类型 str 和 byte 不是 同一 类型 无法 匹配 ']
-#    corpus = processing_data(doc)
-#    print(corpus)
-    text = remove_character(doc[0], delete_unchinese=True)
-    print(text)
+    corpus = processing_data(doc)
+    print(corpus)
+#    text = remove_character(doc[0], delete_unchinese=True)
+#    print(text)
