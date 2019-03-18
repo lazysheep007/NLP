@@ -55,4 +55,9 @@ def main():
     print('共计花费 %s 秒' % round(cost_time, 2))
     
 if __name__=='__main__':
-    main()
+#    main()
+    docs = get_data()
+    print(docs[:10])
+    
+    
+    
